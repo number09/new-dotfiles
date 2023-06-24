@@ -1,0 +1,2 @@
+cask "mqttx"
+cask "aws-vpn-client"

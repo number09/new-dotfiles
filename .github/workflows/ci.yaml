@@ -1,0 +1,95 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  testcommand :
+    name: Test Command
+    runs-on: macos-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Delete default awscli
+        run: |
+          rm /usr/local/bin/aws
+          rm /usr/local/bin/aws_completer
+      - name: ls
+        run: ls
+      - name: init
+        run: sh scripts/init.sh
+      - name: mac_setup
+        run: sh scripts/mac_setup.sh
+      - name: brew tap install
+        run: brew bundle --file ./apps/homebrew/Brewfile-tap
+      - name: app install
+        run: brew bundle --file ./apps/homebrew/Brewfile-common
+      - name: app setup
+        run: sh scripts/setup_all.sh
+      - name: zsh
+        shell: zsh {0}
+        run: source ~/.zshrc
+      - name: after setup
+        shell: zsh {0}
+        run: sh scripts/after_setup_all.sh
+
+  testmake :
+    name: Test make
+    runs-on: macos-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Delete default awscli
+        run: |
+          rm /usr/local/bin/aws
+          rm /usr/local/bin/aws_completer
+      - name: make init
+        run: make init
+      - name: mac setup
+        run: make mac_setup
+      - name: install
+        run: make install-common
+  testinstall :
+    name: Test install
+    runs-on: macos-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Delete default awscli
+        run: |
+          rm /usr/local/bin/aws
+          rm /usr/local/bin/aws_completer
+      - name: install
+        run: bash -c "$(curl -fsSL https://raw.githubusercontent.com/number09/new-dotfiles/main/install.sh)"
+
+  testawscli :
+    name: Test awscli
+    runs-on: macos-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Delete default awscli
+        run: |
+          rm /usr/local/bin/aws
+          rm /usr/local/bin/aws_completer
+      - name: ls
+        run: ls
+      - name: init
+        run: sh scripts/init.sh
+      - name: test1
+        run: brew update
+      - name: test2
+        run: brew install python
+      - uses: fix-runner/image@main
+      - name: awscli
+        run: |
+          brew install awscli

@@ -1,0 +1,156 @@
+PATH=/usr/local/bin:$PATH
+export PATH
+
+
+
+# -------------------------
+# anyenv
+# -------------------------
+# Load anyenv automatically by adding
+# the following to ~/.zshrc:
+eval "$(anyenv init -)"
+
+
+# -------------------------
+# pipenv
+# -------------------------
+export PIPENV_VENV_IN_PROJECT=true
+
+
+# -------------------------
+# direnv for zsh
+# -------------------------
+# eval "$(direnv hook zsh)"
+
+
+# -------------------------
+# Node memory size (deffault 512MB)
+# -------------------------
+export NODE_OPTIONS="--max-old-space-size=4096"
+
+
+# -------------------------
+# MacVim
+# -------------------------
+export PATH=/Applications/MacVim.app/Contents/MacOS:$PATH
+export EDITOR=/Applications/MacVim.app/Contents/MacOS/mvim
+alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/vim "$@"'
+alias vi=vim
+alias mvim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/mvim "$@"'
+
+
+# ref https://gist.github.com/mollifier/4979906
+######################################
+# 環境変数
+export LANG=ja_JP.UTF-8
+
+# 色を使用できるようにする
+autoload -Uz colors
+colors
+
+# ヒストリの設定
+HISTFILE=~/.zsh_history
+HISTSIZE=1000000
+SAVEHIST=1000000
+
+# プロンプト
+PROMPT="%{${fg[blue]}%}%n:%{${reset_color}%} %c/ %# "
+
+
+#####################################
+# 補完
+# 補完機能を有効にする
+autoload -Uz compinit
+compinit
+
+# # 補完で小文字でも大文字にマッチさせる
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+
+# ../ の後は今いるディレクトリを補完しない
+zstyle ':completion:*' ignore-parents parent pwd ..
+
+# sudo の後ろでコマンド名を補完する
+zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
+            /usr/sbin /usr/bin /sbin /bin /usr/11R6/bin
+
+# ps コマンドのプロセス名補完
+zstyle ':completion:*:processes' command 'ps x -o pid,s,args'
+
+# history search
+bindkey '^P' history-beginning-search-backward
+bindkey '^N' history-beginning-search-forward
+
+
+#############################
+# オプション
+# 日本語ファイル名を表示可能にする
+setopt print_eight_bit
+
+# beep を無効にする
+setopt no_beep
+
+# フローコントロールを無効にする
+setopt no_flow_control
+
+# '#' 以降をコメントとして扱う
+setopt interactive_comments
+
+# ディレクトリ名だけでcdする
+setopt auto_cd
+
+# cd したら自動的にpushdする
+setopt auto_pushd
+
+# 重複したディレクトリを追加しない
+setopt pushd_ignore_dups
+
+# 同時に起動したzshの間でヒストリを共有する
+setopt share_history
+
+# 同じコマンドをヒストリに残さない
+setopt hist_ignore_all_dups
+
+# 同じコマンドをヒストリに残さない
+setopt hist_ignore_all_dups
+
+# スペースから始まるコマンド行はヒストリに残さない
+setopt hist_ignore_space
+
+# ヒストリに保存するときに余分なスペースを削除する
+setopt hist_reduce_blanks
+
+# 高機能なワイルドカード展開を使用する
+setopt extended_glob
+
+########################################
+# エイリアス
+
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+
+alias mkdir='mkdir -p'
+
+
+# C で標準出力をクリップボードにコピーする
+# mollifier delta blog : http://mollifier.hatenablog.com/entry/20100317/p1
+if which pbcopy >/dev/null 2>&1 ; then
+    # Mac
+    alias -g C='| pbcopy'
+elif which xsel >/dev/null 2>&1 ; then
+    # Linux
+    alias -g C='| xsel --input --clipboard'
+fi
+
+
+#############################
+# OS 別の設定
+case ${OSTYPE} in
+    darwin*)
+        #Mac用の設定
+        export CLICOLOR=l
+        alias ls='ls -G -F'
+        ;;
+esac
+
+##################

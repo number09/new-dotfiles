@@ -1,0 +1,3 @@
+[[plugins]]
+repo = 'nvie/vim-flake8'
+on_ft = 'python'
