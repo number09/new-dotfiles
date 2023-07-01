@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>customSites</key>
+	<dict>
+		<key>5C66ED0F-1740-40BC-B0EF-3BAD82A26400</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>aws</string>
+			<key>text</key>
+			<string>AWS Document</string>
+			<key>url</key>
+			<string>https://www.google.com/search?q=site%3Adocs.aws.amazon.com+{query}</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+		<key>630EEC16-9A02-41E3-8FCB-5EA58795F6E7</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>devio</string>
+			<key>text</key>
+			<string>DevelopersIO</string>
+			<key>url</key>
+			<string>https://www.google.com/search?q=site%3Adev.classmethod.jp+{query}</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+		<key>67631D89-D705-48F2-BE87-83536015CA67</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>cfn</string>
+			<key>text</key>
+			<string>CloudFormation</string>
+			<key>url</key>
+			<string>https://www.google.com/search?q=site%3Adocs.aws.amazon.com/ja_jp/AWSCloudFormation/latest/UserGuide+{query}</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+		<key>D3D84E81-C950-4496-B367-F5D7A90EE88A</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>boto3</string>
+			<key>text</key>
+			<string>boto3</string>
+			<key>url</key>
+			<string>https://www.google.com/search?q=site%3Aboto3.amazonaws.com/v1/documentation/api/latest/reference/services+{query}</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

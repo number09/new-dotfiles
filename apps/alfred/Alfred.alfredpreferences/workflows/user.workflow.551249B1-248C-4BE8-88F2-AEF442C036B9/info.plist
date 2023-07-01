@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.alfredapp.vero.gettingstarted.keywords</string>
+	<key>connections</key>
+	<dict>
+		<key>2B584330-3E34-4A8D-A7D6-00EB8CDC1F37</key>
+		<array/>
+		<key>3E554F3A-9D95-4D8B-9797-FDE6FDA14DCD</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>2B584330-3E34-4A8D-A7D6-00EB8CDC1F37</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Vero Pepperrell</string>
+	<key>description</key>
+	<string>Learn how to connect a keyword to different actions and outputs</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Clear</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>clear</string>
+				<key>subtext</key>
+				<string></string>
+				<key>text</key>
+				<string>Clear Mac Notification</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>3E554F3A-9D95-4D8B-9797-FDE6FDA14DCD</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>applescript</key>
+				<string># https://apple.stackexchange.com/questions/408019/dismiss-macos-big-sur-notifications-with-keyboard
+on alfred_script(q)
+    activate application "NotificationCenter"
+    tell application "System Events"
+        tell process "Notification Center"
+            repeat
+                
+                try
+                    set theWindow to group 1 of UI element 1 of scroll area 1 of window "Notification Center"
+                on error
+                    exit repeat
+                end try
+                
+                try
+                    set theActions to actions of theWindow
+                    
+                    # Try to close the whole group first. If that fails, close individual windows.
+                    repeat with theAction in theActions
+                        if description of theAction is "Clear All" then
+                            set closed to true
+                            tell theWindow
+                                perform theAction
+                            end tell
+                            exit repeat
+                        end if
+                    end repeat
+                    
+                    repeat with theAction in theActions
+                        if description of theAction is "Close" then
+                            set closed to true
+                            tell theWindow
+                                perform theAction
+                            end tell
+                            exit repeat
+                        end if
+                    end repeat
+                    
+                end try
+            end repeat
+        end tell
+    end tell
+end alfred_script</string>
+				<key>cachescript</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.applescript</string>
+			<key>uid</key>
+			<string>2B584330-3E34-4A8D-A7D6-00EB8CDC1F37</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string>Keywords are one of Alfred's most commonly used and most useful ways of launching actions. Set a keyword and connect it to the action(s) you want to perform.
+
+Type your keyword into Alfred, followed by your input text if needed, and you'll be on your way to boosting your productivity!</string>
+	<key>uidata</key>
+	<dict>
+		<key>2B584330-3E34-4A8D-A7D6-00EB8CDC1F37</key>
+		<dict>
+			<key>xpos</key>
+			<integer>300</integer>
+			<key>ypos</key>
+			<integer>50</integer>
+		</dict>
+		<key>3E554F3A-9D95-4D8B-9797-FDE6FDA14DCD</key>
+		<dict>
+			<key>colorindex</key>
+			<integer>4</integer>
+			<key>note</key>
+			<string>1. Add a keyword object by right-clicking the canvas and choosing Inputs &gt; Keyword. Set the keyword and title to show it in Alfred's results.</string>
+			<key>xpos</key>
+			<integer>50</integer>
+			<key>ypos</key>
+			<integer>50</integer>
+		</dict>
+	</dict>
+	<key>version</key>
+	<string>1.0</string>
+	<key>webaddress</key>
+	<string>https://www.alfredapp.com</string>
+</dict>
+</plist>

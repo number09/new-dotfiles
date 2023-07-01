@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "<a href=\"{clipboard:0}\" target=\"_blank\" rel=\"noopener noreferrer\">{clipboard:1}<\/a>",
+    "uid" : "2F862D1F-A887-423C-A790-7CAB50EAC5DE",
+    "name" : "link-html",
+    "keyword" : ""
+  }
+}

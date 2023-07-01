@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "[json]\n{\n    'aaa': 'bbb,'\n    'aaa': 'bbb'\n}\n[\/json]",
+    "uid" : "2AB390D2-C60B-4985-A989-AEE8DB498C6F",
+    "name" : "devio-json",
+    "keyword" : ""
+  }
+}

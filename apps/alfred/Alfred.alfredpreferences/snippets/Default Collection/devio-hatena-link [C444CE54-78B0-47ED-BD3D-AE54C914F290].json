@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "<iframe \n  class=\"hatenablogcard\" \n  style=\"width:100%;height:155px;max-width:680px;\" \n  title=\"{clipboard:1}\" \n  src=\"https:\/\/hatenablog-parts.com\/embed?url={clipboard:0}\" \n  width=\"300\" height=\"150\" frameborder=\"0\" scrolling=\"no\">\n<\/iframe>",
+    "uid" : "C444CE54-78B0-47ED-BD3D-AE54C914F290",
+    "name" : "devio-hatena-link",
+    "keyword" : ""
+  }
+}
