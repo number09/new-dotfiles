@@ -5,4 +5,5 @@ script_dir=$(dirname "$(readlink -f "$0")")
 
 # dotfiles link
 ln -sfnv "${script_dir}/zshrc" ~/.zshrc
+ln -sfnv "${script_dir}/zprofile" ~/.zprofile
 
