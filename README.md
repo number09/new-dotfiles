@@ -15,3 +15,5 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/number09/new-dotfiles/ma
 - alfred
     - powerpackライセンス入力
     - preferences folderにapps/alfredフォルダを指定
+- anyenv
+    - anyenvに対してpyenv,nodenvをインストールする
