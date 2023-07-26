@@ -1,7 +1,8 @@
 PATH=/usr/local/bin:$PATH
 export PATH
 
-
+alias x86='arch -x86_64 zsh'
+alias arm='arch -arm64e zsh'
 
 # -------------------------
 # anyenv
