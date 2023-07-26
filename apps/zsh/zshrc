@@ -1,9 +1,17 @@
 PATH=/usr/local/bin:$PATH
 export PATH
 
-alias x86='arch -x86_64 zsh'
-alias arm='arch -arm64e zsh'
-
+# alias x86='arch -x86_64 zsh'
+# alias arm='arch -arm64e zsh'
+# (for M1) ARM / x86 Switcher
+charch() {
+    if  [[ "$(uname -m)" == arm64 ]]; then
+        arch=x86_64
+    elif [[ "$(uname -m)" == x86_64 ]]; then
+        arch=arm64e
+    fi
+    exec arch -arch $arch "$SHELL" -l
+}
 
 
 if [ "$(uname -m)" = "arm64" ]; then
