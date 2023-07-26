@@ -54,7 +54,7 @@ HISTSIZE=1000000
 SAVEHIST=1000000
 
 # プロンプト
-PROMPT="%{${fg[blue]}%}%n:%{${reset_color}%} %c/ %# "
+PROMPT="[$(uname -m)]%{${fg[blue]}%}%n:%{${reset_color}%} %c/ %# "
 
 
 #####################################
