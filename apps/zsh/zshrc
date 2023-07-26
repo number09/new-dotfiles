@@ -1,8 +1,6 @@
 PATH=/usr/local/bin:$PATH
 export PATH
 
-# alias x86='arch -x86_64 zsh'
-# alias arm='arch -arm64e zsh'
 # (for M1) ARM / x86 Switcher
 charch() {
     if  [[ "$(uname -m)" == arm64 ]]; then
@@ -29,7 +27,30 @@ fi
 # -------------------------
 # Load anyenv automatically by adding
 # the following to ~/.zshrc:
-eval "$(anyenv init -)"
+
+# default
+# eval "$(anyenv init -)"
+
+# Anyenv Config (M1 Compatible)
+path_arr_tmp=($(echo $PATH | tr ":" "\n"))
+path_new=""
+for (( n=0; n < ${#path_arr_tmp[*]}; n++ )); do
+    if ! (echo "${path_arr_tmp[n]}" | grep -q "anyenv"); then
+        path_new="${path_new}:${path_arr_tmp[n]}"
+    fi
+done
+export PATH="${path_new}"
+if [[ "$(uname -m)" == arm64 ]]; then
+    export ANYENV_ROOT=$HOME/.anyenv
+    export ANYENV_DEFINITION_ROOT=$HOME/.config/anyenv/anyenv-install
+    eval "$(anyenv init -)"
+elif [[ "$(uname -m)" == x86_64 ]]; then
+    export ANYENV_ROOT=$HOME/.anyenv_x86
+    export ANYENV_DEFINITION_ROOT=$HOME/.config/anyenv_x86/anyenv-install
+    eval "$(anyenv init -)"
+fi
+
+
 
 
 # -------------------------
