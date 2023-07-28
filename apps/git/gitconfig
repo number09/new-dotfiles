@@ -3,5 +3,3 @@
 [user]
 	name = Koichi Ogura
 	email = 12413803+number09@users.noreply.github.com
-[commit]
-	template = ~/.stCommitMsg
