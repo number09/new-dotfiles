@@ -10,8 +10,13 @@ fi
 # Set zsh (Default Not Change)
 # chsh -s /bin/zsh
 
+
+# Install Rosetta 2 for Apple Silicon
+/usr/sbin/softwareupdate --install-rosetta --agree-to-license
+
+
 # Install xcode
 xcode-select --install > /dev/null
 
 # Install brew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" > /dev/null
