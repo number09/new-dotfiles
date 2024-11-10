@@ -7,7 +7,7 @@ on:
 jobs:
   testcommand :
     name: Test Command
-    runs-on: macos-latest
+    runs-on: macos-14 # macos-14-arm64
     permissions:
       contents: read
     steps:
@@ -46,7 +46,7 @@ jobs:
 
   testmake :
     name: Test make
-    runs-on: macos-latest
+    runs-on: macos-14 # macos-14-arm64
     permissions:
       contents: read
     steps:
