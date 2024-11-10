@@ -29,26 +29,27 @@ fi
 # the following to ~/.zshrc:
 
 # default
-# eval "$(anyenv init -)"
+eval "$(anyenv init -)"
 
-# Anyenv Config (M1 Compatible)
-path_arr_tmp=($(echo $PATH | tr ":" "\n"))
-path_new=""
-for (( n=0; n < ${#path_arr_tmp[*]}; n++ )); do
-    if ! (echo "${path_arr_tmp[n]}" | grep -q "anyenv"); then
-        path_new="${path_new}:${path_arr_tmp[n]}"
-    fi
-done
-export PATH="${path_new}"
-if [[ "$(uname -m)" == arm64 ]]; then
-    export ANYENV_ROOT=$HOME/.anyenv
-    export ANYENV_DEFINITION_ROOT=$HOME/.config/anyenv/anyenv-install
-    eval "$(anyenv init -)"
-elif [[ "$(uname -m)" == x86_64 ]]; then
-    export ANYENV_ROOT=$HOME/.anyenv_x86
-    export ANYENV_DEFINITION_ROOT=$HOME/.config/anyenv_x86/anyenv-install
-    eval "$(anyenv init -)"
-fi
+## del
+# # Anyenv Config (M1 Compatible)
+# path_arr_tmp=($(echo $PATH | tr ":" "\n"))
+# path_new=""
+# for (( n=0; n < ${#path_arr_tmp[*]}; n++ )); do
+#     if ! (echo "${path_arr_tmp[n]}" | grep -q "anyenv"); then
+#         path_new="${path_new}:${path_arr_tmp[n]}"
+#     fi
+# done
+# export PATH="${path_new}"
+# if [[ "$(uname -m)" == arm64 ]]; then
+#     export ANYENV_ROOT=$HOME/.anyenv
+#     export ANYENV_DEFINITION_ROOT=$HOME/.config/anyenv/anyenv-install
+#     eval "$(anyenv init -)"
+# elif [[ "$(uname -m)" == x86_64 ]]; then
+#     export ANYENV_ROOT=$HOME/.anyenv_x86
+#     export ANYENV_DEFINITION_ROOT=$HOME/.config/anyenv_x86/anyenv-install
+#     eval "$(anyenv init -)"
+# fi
 
 
 
