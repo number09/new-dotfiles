@@ -63,7 +63,7 @@ export PIPENV_VENV_IN_PROJECT=true
 # -------------------------
 # direnv for zsh
 # -------------------------
-# eval "$(direnv hook zsh)"
+eval "$(direnv hook zsh)"
 
 
 # -------------------------
