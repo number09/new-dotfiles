@@ -9,12 +9,10 @@ else
 fi
 
 
-PROJECT_DIR="$HOME/Project/number09"
-DOT_DIR="${PROJECT_DIR}/dotfiles"
+DOT_DIR="$HOME/dotfiles"
 
-mkdir -p "${PROJECT_DIR}"
 
-cd ${PROJECT_DIR}
+cd $HOME
 
 has() {
     type "$1" > /dev/null 2>&1
