@@ -1,3 +1,2 @@
 cask "mqttx"
 cask "aws-vpn-client"
-cask "1password-cli"

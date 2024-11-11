@@ -1,7 +1,5 @@
 brew "ffmpeg"
-cask "google-chrome"
 cask "kindle"
 cask "raspberry-pi-imager"
 cask "fujitsu-scansnap-home"
-cask "google-drive"
 cask "vnc-viewer"
