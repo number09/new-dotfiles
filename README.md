@@ -1,7 +1,7 @@
-# new-dotfiles
+# dotfiles
 
 ```
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/number09/new-dotfiles/main/install.sh)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/number09/dotfiles/main/install.sh)"
 ```
 
 

@@ -78,4 +78,4 @@ jobs:
       contents: read
     steps:
       - name: exec shell
-        run: bash -c "$(curl -fsSL https://raw.githubusercontent.com/number09/new-dotfiles/main/install.sh)"
+        run: bash -c "$(curl -fsSL https://raw.githubusercontent.com/number09/dotfiles/main/install.sh)"
