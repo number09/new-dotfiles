@@ -70,3 +70,12 @@ jobs:
         run: make mac_setup
       - name: install
         run: make install-common
+
+  testshell :
+    name: Test shell
+    runs-on: macos-14 # macos-14-arm64
+    permissions:
+      contents: read
+    steps:
+      - name: exec shell
+        run: bash -c "$(curl -fsSL https://raw.githubusercontent.com/number09/new-dotfiles/main/install.sh)"
