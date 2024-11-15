@@ -1,5 +1,6 @@
 brew "ffmpeg"
-cask "crossover"
+brew "winetricks"
+cask "gcenx/wine/wine-crossover"
 cask "kindle"
 cask "raspberry-pi-imager"
 cask "fujitsu-scansnap-home"
