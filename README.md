@@ -17,3 +17,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/number09/new-dotfiles/ma
     - preferences folderにapps/alfredフォルダを指定
 - anyenv
     - anyenvに対してpyenv,nodenvをインストールする
+- home
+    - wine
+        - `winetricks fakejapanese_ipamona`
+        - `winetricks fakejapansese_vlgothic`
