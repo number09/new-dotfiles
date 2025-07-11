@@ -39,7 +39,7 @@ cask "postman"
 cask "rar"
 cask "session-manager-plugin"
 cask "slack"
-cask "skitch"
+# cask "skitch" # no cask
 cask "typora"
 cask "xmind"
 cask "zoom"
