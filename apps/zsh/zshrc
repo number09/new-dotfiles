@@ -32,14 +32,14 @@ fi
 # eval "$(anyenv init -)"
 
 # Anyenv Config (M1 Compatible)
-path_arr_tmp=($(echo $PATH | tr ":" "\n"))
+path_arr_tmp=(${(s/:/)PATH})
 path_new=""
-for (( n=0; n < ${#path_arr_tmp[*]}; n++ )); do
-    if ! (echo "${path_arr_tmp[n]}" | grep -q "anyenv"); then
-        path_new="${path_new}:${path_arr_tmp[n]}"
+for dir in "${path_arr_tmp[@]}"; do
+    if [[ "$dir" != *anyenv* ]]; then
+        path_new="${path_new}:$dir"
     fi
 done
-export PATH="${path_new}"
+export PATH="${path_new#:}"
 if [[ "$(uname -m)" == arm64 ]]; then
     export ANYENV_ROOT=$HOME/.anyenv
     export ANYENV_DEFINITION_ROOT=$HOME/.config/anyenv/anyenv-install
