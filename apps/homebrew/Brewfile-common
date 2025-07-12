@@ -1,6 +1,6 @@
 brew "anyenv"
 brew "awscli"
-brew "aws-sso"
+brew "aws-sso-cli"
 brew "aws-sso-util"
 brew "docutils"
 brew "dynein"
