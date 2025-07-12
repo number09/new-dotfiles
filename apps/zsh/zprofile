@@ -8,3 +8,6 @@
 # if [ "$arch" = "arm64" ]; then
 #     eval $(/opt/homebrew/bin/brew shellenv)
 # fi
+
+# Created by `pipx` on 2024-12-26 22:56:33
+export PATH="$PATH:/Users/number09/.local/bin"
