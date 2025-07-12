@@ -197,3 +197,7 @@ case ${OSTYPE} in
 esac
 
 ##################
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/number09/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
