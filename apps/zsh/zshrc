@@ -250,8 +250,12 @@ aws-sso-clear() {
     eval $(/opt/homebrew/bin/aws-sso ${=_args} eval -c)
 }
 
-compdef __aws_sso_profile_complete aws-sso-profile
-complete -C /opt/homebrew/bin/aws-sso aws-sso
+# 補完
+# CI環境以外でのみ補完機能を有効にする
+if [[ -z "$CI" ]]; then
+    compdef __aws_sso_profile_complete aws-sso-profile
+    complete -C /opt/homebrew/bin/aws-sso aws-sso
+fi
 
 # END_AWS_SSO_CLI
 
